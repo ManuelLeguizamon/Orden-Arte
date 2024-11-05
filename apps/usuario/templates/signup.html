@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'a-signup.css' %}">
+    <title>Orden Arte</title>
+</head>
+<body>
+    <div id="contenedor">
+        <header>
+            <h1>Orden Arte</h1>
+            <h2 id="subtitulo">Organizá tus repertorios y la informacion sobre tus eventos!</h2>
+        </header>
+        <main>
+            <h2 id="crea-txt">Crea tu cuenta</h2>
+            
+            {% if error %}
+            <div class="mensaje-contenedor">
+                <b><p id="error-txt">Error: <br>{{ error }}</p></b>
+            </div>
+            {% endif %}
+
+            {% if exito %}
+            <div class="mensaje-contenedor">
+                <p id="exito-txt">{{ exito }} <br> <a href="../login">Ingresá a tu cuenta</a></p>
+            </div>
+            {% endif %}
+
+            <form action="{% url 'signup' %}" method="post">
+                {% csrf_token %}
+                <input type="text" id="nombre" name="nombre" class="form-input" placeholder="Nombre" required> <br>
+
+                <input type="text" id="apellido" name="apellido" class="form-input" placeholder="Apellido" required> <br>
+
+                <input type="email" id="email" name="email" class="form-input" placeholder="Correo Electronico" required> <br>
+
+                <input type="password" id="contraseña1" name="contraseña1" class="form-input" placeholder="Contraseña" required> <br>
+
+                <input type="password" id="contraseña2" name="contraseña2" class="form-input" placeholder="Repetir Contraseña" required> <br>
+
+                <button type="submit" class="form-button">Crear</button> <br>
+                <a href="../login">Ya tenes cuenta? Logeate!</a>
+            </form>
+        </main>
+    </div>
+
+</body>
+</html>

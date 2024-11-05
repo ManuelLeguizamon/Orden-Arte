@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'usuario.css' %}"> 
+    <title>Orden Arte</title>
+</head>
+<body>
+    <header>       
+        <nav>
+            <ul id="ul-bar">
+                <li class="nav-li"> <a href="#" class="nav-a"> Inicio </a> </li>
+                <li class="nav-li"> <a href="#" class="nav-a"> Grupos </a> </li>
+                <li class="nav-li"> <a href="#" class="nav-a"> Carpetas </a> </li>
+                <li class="nav-li"> <a href="#" class="nav-a"> Eventos </a> </li>
+                <li class="nav-li"> <a href="{% url 'logout' %}" class="nav-a"> Cerrar Sesión</a> </li>
+            </ul>
+        </nav>
+
+        <h1>Orden Arte</h1>
+        <h2>Inicio</h2>
+    </header>
+
+</body>
+</html>

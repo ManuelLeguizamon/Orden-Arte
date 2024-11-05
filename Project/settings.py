@@ -39,10 +39,10 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 LOCAL_APPS = [
-    'apps.eventoApp',
-    'apps.grupoApp',
-    'apps.usuarioApp',
-    'apps.carpetaApp',
+    'apps.evento',
+    'apps.grupo',
+    'apps.usuario',
+    'apps.carpeta',
 ]
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
 
@@ -122,7 +122,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

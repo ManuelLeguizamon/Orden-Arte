@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'b-login.css' %}">
+    <title>Orden Arte-Login</title>
+</head>
+<body>
+    <div id="contenedor">
+        <header>
+            <h1>Orden Arte</h1>
+            <h2>Organizá tus repertorios y la informacion sobre tus eventos!</h2>
+        </header>
+        <main>
+            <p id="titulo"><b>Iniciar Sesion</b></p>
+            <form action="{% url 'login' %}" method="post"> 
+                {% csrf_token %}
+                <input type="email" name="email" id="email" placeholder="Correo electronico" class="elemento-login">  <br>
+                <input type="password" name="contraseña1" id="contraseña1" placeholder="Contraseña" class="elemento-login">  <br>
+                <button type="submit" >Iniciar Seción</button>
+            </form>
+            {% if errorLogin %}
+                <p><b> <u> Error <br>{{errorLogin}} </u></b> </p>
+            {% endif %}
+            <br>
+            <a href="#">¿Olvidaste tu contraseña?</a>  <br> 
+            <a href="../signup" id="a-txt">¿No tenes cuenta? Creá una! </a>
+        </main>
+    </div>
+</body>
+</html>
