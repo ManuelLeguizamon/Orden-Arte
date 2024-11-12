@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block link %}
+    <link rel="stylesheet" href="../static/evento.css">
+{% endblock %}
+
+{% block contenido %}
+
+    {% if user.is_authenticated %}
+        
+        <h2 id="tus-eventos"><i><u>Tus eventos:</u></i></h2>
+        <hr>
+
+        <ul>
+            {% for evento in eventos %}
+            <div class="div-evento">
+                <li class="list-item"> <a href="#" class="a-item"> {{ evento.nombre }} </a> <small><p class="fecha">{{evento.fecha}}</p> <p id="grupo-nombre">Grupo: {{ evento.grupo }} </p> </small> </li>
+            </div>
+
+            {% empty %} 
+            <p id="sin-eventos-txt"><i>No tenés eventos creados</i></p>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+{% endblock %}

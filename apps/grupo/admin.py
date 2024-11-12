@@ -3,6 +3,5 @@ from apps.grupo.models import Grupo
 
 @admin.register(Grupo)
 class GrupoAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'listaCanciones', 'foto_grupo')
-    list_filter = ('usuarios',)
+    list_display = ('nombre', 'listaCanciones', 'userDueño')
     search_fields = ('nombre', 'listaCanciones')

@@ -3,7 +3,7 @@ from apps.grupo.models import Grupo
 
 class Carpeta(models.Model):
     nombre = models.CharField(max_length=100)
-    partitura = models.FileField(upload_to='partituras/')
+    partitura = models.FileField(upload_to='partituras/', null=True, blank=True)
     fechaCarga = models.DateTimeField(auto_now_add=True)
     grupo = models.ForeignKey(Grupo, on_delete=models.CASCADE, related_name='carpetas')
 

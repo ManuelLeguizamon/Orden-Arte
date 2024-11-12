@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'grupo.css' %}"> 
+    <title>Orden Arte</title>
+</head>
+<body>
+    <header>       
+        <nav>
+            <ul id="ul-bar">
+                <li class="nav-li"> <a href="{% url 'usuario' %}" class="nav-a"> Inicio </a> </li>
+                <li class="nav-li"> <a href="{% url 'grupo' %}" class="nav-a"> Grupos </a> </li>
+                <li class="nav-li"> <a href="{% url 'evento' %}" class="nav-a"> Eventos </a> </li>
+                <li class="nav-li"> <a href="{% url 'logout' %}" class="nav-a"> Cerrar Sesión</a> </li>
+            </ul>
+        </nav>
+        
+        <h1>Grupos</h1>
+    </header>
+
+    {% if user.is_authenticated %}
+   
+        <div class="opcion-inicio">
+            <a href="{% url 'crear-grupo' %}" class="a-opcion">Crear Grupo</a>
+        </div>
+
+        <hr>
+        <h2 id="tus-grupos"><u><i>Tus Grupos:</u></i></h2>
+        
+        <ul>
+            {% for grupo in grupos %}
+            <div class="div-grupos">
+            <li class="list-item"> <a href="{% url 'nuevo-grupo' grupo_id=grupo.id %}" class="a-item"> {{ grupo.nombre }} </a> </li>
+            </div>
+            {% empty %}
+            <p id="sin-grupos-txt"><i>No tenés grupos creados</i></p>
+            {% endfor %}
+        </ul>
+        
+    {% endif %}
+</body>
+</html>

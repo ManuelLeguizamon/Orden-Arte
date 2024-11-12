@@ -1,27 +1,50 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'usuario.css' %}"> 
-    <title>Orden Arte</title>
-</head>
-<body>
-    <header>       
-        <nav>
-            <ul id="ul-bar">
-                <li class="nav-li"> <a href="#" class="nav-a"> Inicio </a> </li>
-                <li class="nav-li"> <a href="#" class="nav-a"> Grupos </a> </li>
-                <li class="nav-li"> <a href="#" class="nav-a"> Carpetas </a> </li>
-                <li class="nav-li"> <a href="#" class="nav-a"> Eventos </a> </li>
-                <li class="nav-li"> <a href="{% url 'logout' %}" class="nav-a"> Cerrar Sesión</a> </li>
-            </ul>
-        </nav>
+{% extends 'base.html' %}
 
-        <h1>Orden Arte</h1>
-        <h2>Inicio</h2>
-    </header>
+{% block link %}
+    <link rel="stylesheet" href="../static/usuario.css">
+{% endblock %}
 
-</body>
-</html>
+{% block contenido %}
+
+    {% if request.user.is_authenticated %}
+    {% else %}  
+    <div id="ingresar-contenedor">
+        <a href="{% url 'login' %}" class="ingresar">Login</a> 
+        <a href="{% url 'signup' %}" class="ingresar">Crear Cuenta</a> 
+    </div>    
+    <hr id="hr-ingresar">
+    {% endif %}
+
+    <section class="bienvenida">
+        <h1>¡Bienvenido {{ user.get_short_name }} a Orden Arte!</h1>
+    
+        <p>En <strong>Orden Arte</strong>, te ofrecemos una plataforma única pensada especialmente para músicos y artistas, donde podrás organizar todas tus actividades y proyectos de manera eficiente.</p>
+    
+        <p>Ya sea que estés creando un nuevo grupo musical, coordinando ensayos, o gestionando eventos como recitales, grabaciones o presentaciones, nuestra herramienta te proporciona todas las funciones necesarias para facilitar el proceso creativo y organizativo.</p>
+    
+        <h2>Características Principales</h2>
+        <p>Cada grupo puede tener su propio espacio donde se podrán compartir:</p>
+        <ul>
+            <li>Partituras</li>
+            <li>Listas de temas</li>
+            <li>Archivos multimedia</li>
+            <li>Y toda la información relevante para facilitar el aprendizaje y la práctica.</li>
+        </ul>
+    
+        <p>Además, podrás coordinar todos los aspectos de los eventos, incluyendo detalles sobre:</p>
+        <ul>
+            <li>La vestimenta</li>
+            <li>La localidad</li>
+            <li>La planificación de pagos</li>
+        </ul>
+    
+        <p>Todo esto en un solo lugar.</p>
+    
+        <p>En <strong>Orden Arte</strong>, nuestro objetivo es brindarte una plataforma intuitiva y funcional, para que puedas concentrarte en lo que realmente importa: <strong>¡el arte!</strong></p>
+    
+        <p><strong>Uníte hoy y organiza tu mundo musical como el mas capo de todos!</strong></p>
+    </section>
+    
+
+
+{% endblock %}

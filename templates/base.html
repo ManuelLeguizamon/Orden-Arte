@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block head %}
+    {% block link %} 
     {% endblock %}
-    <title>{% block titulo %} Orden Arte {% endblock %}</title>
-</head>
+    <title>Orden Arte</title>
+    </head>
 <body>
-    <header>
-        <h1>Orden Arte</h1>
-        <h2 id="subtitulo">Organizá tus repertorios y la informacion sobre tus eventos!</h2>
+    <header>       
+        <nav>
+            <ul id="ul-bar">
+                <li class="nav-li"> <a href="{% url 'usuario' %}" class="nav-a"> Inicio </a> </li>
+                <li class="nav-li"> <a href="{% url 'grupo' %}" class="nav-a"> Grupos </a> </li>
+                <li class="nav-li"> <a href="{% url 'evento' %}" class="nav-a"> Eventos </a> </li>
+                <li class="nav-li"> <a href="{% url 'logout' %}" class="nav-a"> Cerrar Sesión</a> </li>
+            </ul>
+        </nav>
     </header>
-    {% block contenido %}
-      
+    {% block contenido %} 
+ 
     {% endblock %}
+
 </body>
 </html>

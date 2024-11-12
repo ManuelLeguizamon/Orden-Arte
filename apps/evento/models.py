@@ -37,9 +37,9 @@ class Vestimenta(models.Model):
 #---------------------------------------------------------------------------------------------------
 
 class Horario(models.Model):
-    horarioLlegada = models.DateField(null=True, blank=True)
-    horarioPruebaSonido = models.DateField(null=True, blank=True)
-    horarioTocar = models.DateField(null=True, blank=True)
+    horarioLlegada = models.TimeField(null=True, blank=True)
+    horarioPruebaSonido = models.TimeField(null=True, blank=True)
+    horarioTocar = models.TimeField(null=True, blank=True)
 
     def __str__(self):
         return f"Horario de tocar: {self.horarioTocar}"
@@ -54,6 +54,7 @@ class Evento(models.Model):
     tipo = models.ForeignKey(EventoTipo, on_delete=models.CASCADE, related_name='eventos', null=True, blank=True)
     vestimenta = models.ForeignKey(Vestimenta, on_delete=models.CASCADE, related_name='eventos', null=True, blank=True)
     horario = models.ForeignKey(Horario, on_delete=models.CASCADE, related_name='eventos', null=True, blank=True)
+    grupo = models.ForeignKey("grupo.Grupo", on_delete=models.CASCADE, related_name='eventos')
 
     def __str__(self):
         return f"{self.nombre}: {self.tipo}"

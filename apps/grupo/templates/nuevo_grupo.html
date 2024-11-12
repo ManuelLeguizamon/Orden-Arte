@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'nuevo_grupo.css' %}"> 
+    <title>Orden Arte</title>
+</head>
+<body>
+    <header>       
+        <nav>
+            <ul id="ul-bar">
+                <li class="nav-li"> <a href="{% url 'usuario' %}" class="nav-a"> Inicio </a> </li>
+                <li class="nav-li"> <a href="{% url 'grupo' %}" class="nav-a"> Grupos </a> </li>
+                <li class="nav-li"> <a href="{% url 'evento' %}" class="nav-a"> Eventos </a> </li>
+                <li class="nav-li"> <a href="{% url 'logout' %}" class="nav-a"> Cerrar Sesión</a> </li>
+            </ul>
+        </nav>
+    </header>
+    <h1> {{ grupo.nombre }} </h1>
+<hr>
+    <h2 class="tus-asuntos"><i><u>Tus eventos:</u></i></h2>
+    {% if user.is_authenticated %}
+        <div class="div-crear-evento">
+            <a href="{% url 'crear-evento' grupo_id %}" class="a-opcion">Crear Evento</a>
+        </div>
+
+        <ul>
+            {% for evento in eventos %}
+            <div class="div-evento">
+                <li class="list-item"> <a href="{% url 'evento-detalle' grupo_id=grupo_id evento_id=evento.id  %}"  class="a-item"> {{ evento.nombre }} </a> <p class="fecha">{{evento.fecha}} </p> </li>
+            </div>
+
+            {% empty %} 
+            <p class="sin-data-txt"><i>No tenés eventos creados</i></p>
+            {% endfor %}
+        </ul>
+    
+<hr>
+
+    <h2 class="tus-asuntos"><i><u>Tus canciones:</u></i></h2>
+    <div class="div-crear-carpeta">
+        <a href="{% url 'crear-carpeta' grupo_id=grupo.id %}" class="a-opcion">Crear carpeta</a>
+    </div>
+
+    <ul>
+        {% for carpeta in carpetas %}
+            <div class="div-evento">
+                <li class="list-item"> <a href="{% url 'carpeta' grupo_id=grupo_id carpeta_id=carpeta.id %}" class="a-item"> {{ carpeta.nombre }} </a> </li>
+            </div>
+        {% empty %}
+        <p class="sin-data-txt"><i>No tenés canciones subidas</i></p>
+        {% endfor %}
+    </ul>
+
+    {% endif %}
+</body>
+</html>

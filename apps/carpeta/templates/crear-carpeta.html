@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'crear-carpeta.css' %}"> 
+    <title>Orden Arte</title>
+</head>
+<body>
+    <header>       
+        <nav>
+            <ul id="ul-bar">
+                <li class="nav-li"> <a href="{% url 'usuario' %}" class="nav-a"> Inicio </a> </li>
+                <li class="nav-li"> <a href="{% url 'grupo' %}" class="nav-a"> Grupos </a> </li>
+                <li class="nav-li"> <a href="{% url 'evento' %}" class="nav-a"> Eventos </a> </li>
+                <li class="nav-li"> <a href="{% url 'logout' %}" class="nav-a"> Cerrar Sesión</a> </li>
+            </ul>
+        </nav>
+        <h1>CREAR CARPETA</h1>
+    </header>
+
+    <div id="form-contenedor">
+        <form action="{% url 'crear-carpeta' grupo_id=grupo.id %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div id="form-div">{{ form }}</div>
+            <button type="submit">Crear Carpeta</button>
+        </form>
+    </div>
+
+
+</body>

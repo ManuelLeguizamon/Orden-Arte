@@ -2,10 +2,13 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.contrib.auth.models import User  
 from django.contrib.auth import authenticate, login, logout
+from .models import Usuario
 
 #---------------------------------------------------------------------------------------------------------
 class UsuarioView(TemplateView):
     template_name='usuario.html'    
+    
+        
 
 #---------------------------------------------------------------------------------------------------------
 class SignUpView(TemplateView): 
@@ -14,7 +17,7 @@ class SignUpView(TemplateView):
     def post(self, request, *args, **kwargs):
         if request.POST['contraseña1'] == request.POST['contraseña2']:
             try:
-                usuario = User.objects.create_user(username=request.POST.get('email'), password=request.POST.get('contraseña1'))
+                usuario = User.objects.create_user(username=request.POST.get('email'), password=request.POST.get('contraseña1'), first_name=request.POST.get('nombre'))
                 usuario.save()
                 return render(request, 'signup.html', {'exito': 'Usuario creado correctamente'})
             except:
@@ -41,7 +44,7 @@ class LoginView(TemplateView):
                 login(request, usuario)
                 return redirect('usuario')
 
-#---------------------------------------------------------------------------------------------------------            
+#---------------------------------------------------------------------------------------------------------
 def logout_view(request):
         logout(request)
         return redirect('login')
