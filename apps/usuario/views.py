@@ -1,14 +1,14 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.views.generic import TemplateView
 from django.contrib.auth.models import User  
 from django.contrib.auth import authenticate, login, logout
 from .models import Usuario
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 #---------------------------------------------------------------------------------------------------------
-class UsuarioView(TemplateView):
-    template_name='usuario.html'    
-    
-        
+class UsuarioView(LoginRequiredMixin, TemplateView):
+    template_name='usuario.html'
 
 #---------------------------------------------------------------------------------------------------------
 class SignUpView(TemplateView): 

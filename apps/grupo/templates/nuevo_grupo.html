@@ -26,10 +26,19 @@
             <a href="{% url 'crear-evento' grupo_id %}" class="a-opcion">Crear Evento</a>
         </div>
 
+
+<!--   --------------     Eventos    ----------------------------------------------------------->
+
         <ul>
             {% for evento in eventos %}
-            <div class="div-evento">
-                <li class="list-item"> <a href="{% url 'evento-detalle' grupo_id=grupo_id evento_id=evento.id  %}"  class="a-item"> {{ evento.nombre }} </a> <p class="fecha">{{evento.fecha}} </p> </li>
+            <div class="div-evento" id="div-evento">
+                <li class="list-item"> <a href="{% url 'evento-detalle' grupo_id=grupo_id evento_id=evento.id  %}"  class="a-item"> {{ evento.nombre }} </a> <p class="fecha">{{evento.fecha}} </p> 
+                
+                <form action="{% url 'eliminar-evento' grupo_id=grupo_id borrar_evento_id=evento.id %}" method="post">
+                    {% csrf_token %}
+                    <button class="boton-eliminar">Borrar</button>
+                </form>
+                </li>
             </div>
 
             {% empty %} 
@@ -39,6 +48,9 @@
     
 <hr>
 
+<!--   --------------     Carpetas de canciones    ------------------------------------------------>
+
+
     <h2 class="tus-asuntos"><i><u>Tus canciones:</u></i></h2>
     <div class="div-crear-carpeta">
         <a href="{% url 'crear-carpeta' grupo_id=grupo.id %}" class="a-opcion">Crear carpeta</a>
@@ -46,8 +58,14 @@
 
     <ul>
         {% for carpeta in carpetas %}
-            <div class="div-evento">
-                <li class="list-item"> <a href="{% url 'carpeta' grupo_id=grupo_id carpeta_id=carpeta.id %}" class="a-item"> {{ carpeta.nombre }} </a> </li>
+            <div class="div-evento" id="div-carpeta">
+                <li class="list-item"> <a href="{% url 'carpeta' grupo_id=grupo_id carpeta_id=carpeta.id %}" class="a-item"> {{ carpeta.nombre }} </a> 
+            
+                <form action="{% url 'eliminar-carpeta' grupo_id=grupo_id borrar_carpeta_id=carpeta.id %}" method="post">
+                    {% csrf_token %}
+                    <button class="boton-eliminar">Borrar</button>
+                </form>
+                </li>
             </div>
         {% empty %}
         <p class="sin-data-txt"><i>No tenés canciones subidas</i></p>

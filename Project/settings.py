@@ -133,3 +133,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_URL = '/inicio/login/' 
+# Especifica la URL a la cual se redirige a un usuario no autenticado cuando intenta acceder a una vista que requiere inicio de sesión
+
+#LOGIN_REDIRECT_URL = '/inicio/' 
+#La URL que redirige  al usuario después de iniciar sesión correctamente lo manejo desde la vista
+
+
+LOGOUT_REDIRECT_URL = '/inicio/login/' 
+#Especifica la URL a la cual se redirige al usuario después de cerrar sesión.
+

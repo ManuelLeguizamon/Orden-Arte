@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'crear-evento.css' %}"> 
+    <title>Orden Arte</title>
+</head>
+<body>
+    <header>       
+        <nav>
+            <ul id="ul-bar">
+                <li class="nav-li"> <a href="{% url 'usuario' %}" class="nav-a"> Inicio </a> </li>
+                <li class="nav-li"> <a href="{% url 'grupo' %}" class="nav-a"> Grupos </a> </li>
+                <li class="nav-li"> <a href="{% url 'evento' %}" class="nav-a"> Eventos </a> </li>
+                <li class="nav-li"> <a href="{% url 'logout' %}" class="nav-a"> Cerrar Sesión</a> </li>
+            </ul>
+        </nav>
+        <h1>Modificar EVENTO</h1>
+    </header>
+    <div id="form-contenedor">
+        <form action="{% url 'modificar-evento' grupo_id evento_id %}" method="post">
+            {% csrf_token %}
+            <div id="form-div">{{ eventoForm }}  {{ horarioForm }} {{ localidadForm }} </div>
+            <button type="submit" name="modificar_evento">Modificar Evento</button>
+        </form>
+    </div>
+
+
+</body>

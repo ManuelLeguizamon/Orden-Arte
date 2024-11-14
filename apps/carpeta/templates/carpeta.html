@@ -34,6 +34,11 @@
                 {{ archivo.nombreMultimedia }}
             </a>
         </div>
+
+            <form action="{% url 'eliminar-archivo' grupo_id=grupo_id carpeta_id=carpeta_id eliminar_archivo_id=archivo.id %}" method="post">
+                {% csrf_token %}
+                <button id="boton-eliminar">Borrar</button>
+            </form>
         {% endfor %}
 
 

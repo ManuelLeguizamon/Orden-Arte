@@ -21,70 +21,72 @@
 
 
 
-{% if request.user.is_authenticated %}
     <main>
             <h1>Detalles: <u>{{ nombre }}</u></h1>
         <ul>    
-            <li><p><i>Fecha:</i> {{ fecha }} </p> </li>
+            <li><p><i>Fecha:</i> <b> {{ fecha }} </b> </p> </li>
 
             {% if tipo %}
-            <li><p><i>Tipo de evento:</i> {{ tipo }} </p> </li>
+            <li><p><i>Tipo de evento:</i> <b> {{ tipo }} </b> </p> </li>
             {% else %} 
             <li><p><i>Tipo de evento:</i> ... </p></li>
             {% endif %}
 
             {% if vestimenta %}
-            <li><p><i>Vestimenta:</i> {{ vestimenta }} </p> </li>
+            <li><p><i>Vestimenta:</i> <b> {{ vestimenta }} </b> </p> </li>
             {% else %} 
             <li><p><i>Vestimenta:</i> ... </p></li>
             {% endif %}
             
             {% if dineroCobrar %}
-            <li><p><i>Dienero a cobrar:</i> {{ dineroCobrar }} </p> </li>
+            <li><p><i>Dienero a cobrar:</i> <b> {{ dineroCobrar }} </b> </p> </li>
             {% else %} 
             <li><p><i>Dienero a cobrar:</i> ... </p></li>
             {% endif %}
 
             {% if horarioLlegada %}
-            <li><p><i>Horario de llegada:</i> {{ horarioLlegada }} </p> </li>
+            <li><p><i>Horario de llegada:</i> <b> {{ horarioLlegada }} </b> </p> </li>
             {% else %} 
             <li><p><i>Horario de llegada:</i> ... </p></li>
             {% endif %}
 
             {% if horarioPrueba %}
-            <li><p><i>Horario de la prueba de sonido:</i> {{ horarioPrueba }} </p> </li>
+            <li><p><i>Prueba de sonido:</i> <b> {{ horarioPrueba }} </b> </p> </li>
             {% else %} 
-            <li><p><i>Horario de la prueba de sonido:</i> ... </p></li>
+            <li><p><i>Prueba de sonido:</i> ... </p></li>
             {% endif %}
             
             {% if horarioTocar %}
-            <li><p><i>Horario de tocar:</i> {{ horarioTocar }} </p> </li>
+            <li><p><i>Horario de tocar:</i> <b> {{ horarioTocar }} </b> </p> </li>
             {% else %} 
             <li><p><i>Horario de tocar:</i> ... </p></li>
             {% endif %}
             
             {% if pais %}
-            <li><p><i>Pais:</i> {{ pais }} </p> </li>
+            <li><p><i>Pais:</i> <b> {{ pais }} </b> </p> </li>
             {% else %} 
             <li><p><i>Pais:</i> ... </p></li>
             {% endif %}
 
             {% if ciudad %}
-            <li><p><i>Ciudad:</i> {{ ciudad }} </p> </li>
+            <li><p><i>Ciudad:</i> <b> {{ ciudad }} </b> </p> </li>
             {% else %} 
             <li><p><i>Ciudad:</i> ... </p></li>
             {% endif %}
 
             {% if direccion %}
-            <li><p><i>Direccion:</i> {{ direccion }} </p> </li>
+            <li><p><i>Direccion:</i> <b> {{ direccion }} </b> </p> </li>
             {% else %} 
             <li><p><i>Direccion:</i> ... </p></li>
-            {% endif %}
-            
+            {% endif %}        
         </ul>
+
+        <form action="{% url 'modificar-evento' grupo_id=grupo_id evento_id=evento_id %}" method="post">
+            {% csrf_token %}
+            <button> Modificar </button>
+        </form>
     </main>
 
 
-{% endif %}
 </body>
 </html>

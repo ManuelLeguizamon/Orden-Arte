@@ -21,7 +21,6 @@
         <h1>Grupos</h1>
     </header>
 
-    {% if user.is_authenticated %}
    
         <div class="opcion-inicio">
             <a href="{% url 'crear-grupo' %}" class="a-opcion">Crear Grupo</a>
@@ -33,13 +32,18 @@
         <ul>
             {% for grupo in grupos %}
             <div class="div-grupos">
-            <li class="list-item"> <a href="{% url 'nuevo-grupo' grupo_id=grupo.id %}" class="a-item"> {{ grupo.nombre }} </a> </li>
+                <li class="list-item"> <a href="{% url 'nuevo-grupo' grupo_id=grupo.id %}" class="a-item"> {{ grupo.nombre }} </a> 
+
+                    <form action="{% url 'borrar_grupo' borrar_grupo_id=grupo.id %}" method="post">
+                        {% csrf_token %}
+                        <button id="boton-eliminar">Borrar</button>
+                    </form>
+                </li>
             </div>
             {% empty %}
             <p id="sin-grupos-txt"><i>No tenés grupos creados</i></p>
             {% endfor %}
         </ul>
-        
-    {% endif %}
+
 </body>
 </html>

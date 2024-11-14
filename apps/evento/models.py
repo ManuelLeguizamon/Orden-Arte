@@ -48,7 +48,7 @@ class Horario(models.Model):
 class Evento(models.Model):
     nombre = models.CharField(max_length=30, null=True, blank=True)
     fecha = models.DateField(null=True, blank=True)
-    dineroCobrar = models.DecimalField(max_digits=6, decimal_places=2, default=0)
+    dineroCobrar = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
     localidad = models.ForeignKey(Localidad, on_delete=models.CASCADE, related_name='eventos', null=True, blank=True)
     tipo = models.ForeignKey(EventoTipo, on_delete=models.CASCADE, related_name='eventos', null=True, blank=True)
