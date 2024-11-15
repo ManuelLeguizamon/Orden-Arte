@@ -1,33 +1,17 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 {% load static %}
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'carpeta.css' %}">
-    <title>Orden Arte</title>
-    </head>
 
-    <body>
-        <header>       
-            <nav>
-                <ul id="ul-bar">
-                    <li class="nav-li"> <a href="{% url 'usuario' %}" class="nav-a"> Inicio </a> </li>
-                    <li class="nav-li"> <a href="{% url 'grupo' %}" class="nav-a"> Grupos </a> </li>
-                    <li class="nav-li"> <a href="{% url 'evento' %}" class="nav-a"> Eventos </a> </li>
-                    <li class="nav-li"> <a href="{% url 'logout' %}" class="nav-a"> Cerrar Sesión</a> </li>
-                </ul>
-            </nav>
-        </header>
+{% block link %}
+    <link rel="stylesheet" href="{% static 'carpeta.css' %}">
+{% endblock %}
+
+{% block contenido %}
 
     <h1>Contenido de {{ carpeta_nombre }} </h1>
     <div>
         <a href="{% url 'subir-archivo' grupo_id=grupo_id carpeta_id=carpeta_id %}" id="subir-archivo">Subir archivo</a>
     </div>
 
-
-        
-        
         {% for archivo in archivos %}
         <div class="div-archivos">
             <a href="{{ archivo.archivo.url }}" target="_blank">
@@ -41,6 +25,4 @@
             </form>
         {% endfor %}
 
-
-</body>
-</html>
+{% endblock %}

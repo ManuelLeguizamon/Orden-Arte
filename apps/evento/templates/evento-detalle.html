@@ -1,26 +1,11 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% block link %}
     <link rel="stylesheet" href="{% static 'evento-detalle.css' %}">
-    <title>Orden Arte</title>
-</head>
-<body>
-    <header>       
-        <nav>
-            <ul id="ul-bar">
-                <li class="nav-li"> <a href="{% url 'usuario' %}" class="nav-a"> Inicio </a> </li>
-                <li class="nav-li"> <a href="{% url 'grupo' %}" class="nav-a"> Grupos </a> </li>
-                <li class="nav-li"> <a href="{% url 'evento' %}" class="nav-a"> Eventos </a> </li>
-                <li class="nav-li"> <a href="{% url 'logout' %}" class="nav-a"> Cerrar Sesión</a> </li>
-            </ul>
-        </nav>
-    </header>
+{% endblock %}
 
-
-
+{% block contenido %}
     <main>
             <h1>Detalles: <u>{{ nombre }}</u></h1>
         <ul>    
@@ -87,6 +72,4 @@
         </form>
     </main>
 
-
-</body>
-</html>
+{% endblock %}

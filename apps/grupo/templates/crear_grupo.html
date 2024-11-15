@@ -1,24 +1,12 @@
-|<!DOCTYPE html>
+{% extends 'base.html' %}
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'crear_grupo.css' %}"> 
-    <title>Orden Arte</title>
-</head>
-<body>
-    <header>       
-        <nav>
-            <ul id="ul-bar">
-                <li class="nav-li"> <a href="{% url 'usuario' %}" class="nav-a"> Inicio </a> </li>
-                <li class="nav-li"> <a href="{% url 'grupo' %}" class="nav-a"> Grupos </a> </li>
-                <li class="nav-li"> <a href="{% url 'evento' %}" class="nav-a"> Eventos </a> </li>
-                <li class="nav-li"> <a href="{% url 'logout' %}" class="nav-a"> Cerrar Sesión</a> </li>
-            </ul>
-        </nav>
-        <h1>CREAR GRUPO</h1>
-    </header>
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'crear_grupo.css' %}">
+{% endblock %}
+
+{% block contenido %}
+    <h1>CREAR GRUPO</h1>
 
     <div id="form-contenedor">
         <form action="{% url 'crear-grupo' %}" method="post">
@@ -28,5 +16,4 @@
         </form>
     </div>
 
-</body>
-</html>
+{% endblock %}

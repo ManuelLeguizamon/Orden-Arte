@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from .forms import CrearGrupoForm
 from .models import Grupo
 from django.contrib.auth.models import User  
-from apps.usuario.models import Usuario 
+# from apps.usuario.models import Usuario 
 from apps.evento.forms import EventoForm
 from apps.evento.models import Evento
 from apps.carpeta.models import Carpeta
@@ -17,11 +17,11 @@ class GrupoView(LoginRequiredMixin, TemplateView):
     template_name='grupo.html'
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        id_usuario = self.request.user.id
+        context = super().get_context_data(**kwargs)        
         # context['grupos'] = Grupo.objects.filter(userDueño=id_usuario).all() 
-        context['grupos'] = Grupo.objects.all() 
-        print(f'\n\n\n\n user actual: {id_usuario} \n\n\n\n')    
+        # context['grupos'] = Grupo.objects.all()   
+        context['grupos'] = self.request.user.grupos.all()
+
         return context 
     
     def post(self, request, *args, **kwargs):
@@ -39,7 +39,9 @@ class CrearGrupoView(LoginRequiredMixin, FormView):
 
     
     def form_valid(self, form):
-        form.save()
+        grupoNuevo= form.save(commit=False)
+        grupoNuevo.userDueño = self.request.user
+        grupoNuevo.save()
         return super().form_valid(form) 
 
 
@@ -51,9 +53,9 @@ class NuevoGrupoView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         grupo_id = self.kwargs['grupo_id']
-        grupo = get_object_or_404(Grupo, id=grupo_id)
+        grupo = get_object_or_404(Grupo, id=grupo_id, userDueño=self.request.user)
         context['grupo'] = grupo
-        context['eventos']= Evento.objects.filter(grupo=grupo_id).all()
+        context['eventos']= Evento.objects.filter(grupo=grupo_id, grupo__userDueño=self.request.user).all()
         context['carpetas'] = Carpeta.objects.filter(grupo=grupo_id).all()
         return context
         

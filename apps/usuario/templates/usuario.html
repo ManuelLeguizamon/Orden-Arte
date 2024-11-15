@@ -1,19 +1,11 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block link %}
-    <link rel="stylesheet" href="../static/usuario.css">
+    <link rel="stylesheet" href="{% static 'usuario/usuario.css' %}">
 {% endblock %}
 
 {% block contenido %}
 
-    {% if request.user.is_authenticated %}
-    {% else %}  
-    <div id="ingresar-contenedor">
-        <a href="{% url 'login' %}" class="ingresar">Login</a> 
-        <a href="{% url 'signup' %}" class="ingresar">Crear Cuenta</a> 
-    </div>    
-    <hr id="hr-ingresar">
-    {% endif %}
 
     <section class="bienvenida">
         <h1>¡Bienvenido a Orden Arte!</h1>

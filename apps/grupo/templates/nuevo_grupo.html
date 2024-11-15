@@ -1,27 +1,15 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 {% load static %}
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'nuevo_grupo.css' %}"> 
-    <title>Orden Arte</title>
-</head>
-<body>
-    <header>       
-        <nav>
-            <ul id="ul-bar">
-                <li class="nav-li"> <a href="{% url 'usuario' %}" class="nav-a"> Inicio </a> </li>
-                <li class="nav-li"> <a href="{% url 'grupo' %}" class="nav-a"> Grupos </a> </li>
-                <li class="nav-li"> <a href="{% url 'evento' %}" class="nav-a"> Eventos </a> </li>
-                <li class="nav-li"> <a href="{% url 'logout' %}" class="nav-a"> Cerrar Sesión</a> </li>
-            </ul>
-        </nav>
-    </header>
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'nuevo_grupo.css' %}">
+{% endblock %}
+
+{% block contenido %}
     <h1> {{ grupo.nombre }} </h1>
 <hr>
     <h2 class="tus-asuntos"><i><u>Tus eventos:</u></i></h2>
-    {% if user.is_authenticated %}
+  
         <div class="div-crear-evento">
             <a href="{% url 'crear-evento' grupo_id %}" class="a-opcion">Crear Evento</a>
         </div>
@@ -72,6 +60,5 @@
         {% endfor %}
     </ul>
 
-    {% endif %}
-</body>
-</html>
+ 
+{% endblock %}

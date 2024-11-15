@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block link %}
-    <link rel="stylesheet" href="../static/evento.css">
+    <link rel="stylesheet" href="{% static '/evento.css' %}">
 {% endblock %}
 
 {% block contenido %}
@@ -20,6 +20,5 @@
             <p id="sin-eventos-txt"><i>No tenés eventos creados</i></p>
             {% endfor %}
         </ul>
-    
 
 {% endblock %}

@@ -14,7 +14,7 @@ class CarpetaView(LoginRequiredMixin, TemplateView):
         carpeta_id = self.kwargs['carpeta_id']
         carpeta = get_object_or_404(Carpeta, id=carpeta_id)
         grupo_id = self.kwargs['grupo_id']
-        grupo = get_object_or_404(Grupo, id=grupo_id)
+        grupo = get_object_or_404(Grupo, id=grupo_id, userDueño=self.request.user)
         context['carpeta_nombre'] = carpeta.nombre
         context['grupo_id'] = grupo_id
         context['carpeta_id'] = carpeta_id
@@ -45,7 +45,7 @@ class SubirArchivoView(LoginRequiredMixin, FormView):
     
     def form_valid(self, form):
         carpeta_id = self.kwargs.get('carpeta_id')
-        carpeta = get_object_or_404(Carpeta, id=carpeta_id)
+        carpeta = get_object_or_404(Carpeta, id=carpeta_id, grupo__userDueño=self.request.user)
         carpetaForm = form.save(commit=False)
         carpetaForm.carpeta = carpeta
         carpetaForm.save()
@@ -63,7 +63,7 @@ class CrearCarpetaView(LoginRequiredMixin, FormView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         grupo_id = self.kwargs['grupo_id']
-        grupo = get_object_or_404(Grupo, id=grupo_id)
+        grupo = get_object_or_404(Grupo, id=grupo_id, userDueño=self.request.user)
         context['grupo'] = grupo
         context['carpetas'] = Carpeta.objects.all()
         return context

@@ -13,23 +13,24 @@ class EventoView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['eventos'] = Evento.objects.all()
+        context['eventos'] = Evento.objects.filter(grupo__userDueño=self.request.user).all()      
         return context
 
 #----------------------------------------------------------------------------------------------------------------------------
 class EventoDetalleView(LoginRequiredMixin, TemplateView):
     template_name = 'evento-detalle.html'
     
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         evento_id = self.kwargs['evento_id']
         grupo_id = self.kwargs['grupo_id']
-        evento = get_object_or_404(Evento, id=evento_id)
+        evento = get_object_or_404(Evento, id=evento_id, grupo__userDueño=self.request.user)
         horarios = evento.horario
         localidad = evento.localidad
         context['evento'] = evento
         context['evento_id'] = evento_id
-        context['detalles'] = Evento.objects.filter(id=evento_id).all()
+        context['detalles'] = Evento.objects.filter(id=evento_id, grupo__userDueño=self.request.user).all()
         context['nombre'] = evento.nombre
         context['fecha'] = evento.fecha
         context['dineroCobrar'] = evento.dineroCobrar
@@ -103,7 +104,7 @@ class ModificarEventoView(LoginRequiredMixin, FormView):
         return context
 
     def form_valid(self, form):        
-        grupo = get_object_or_404(Grupo, id=self.kwargs['grupo_id'])
+        grupo = get_object_or_404(Grupo, id=self.kwargs['grupo_id'], userDueño=self.request.user)
         evento = get_object_or_404(Evento, id=self.kwargs['evento_id'])
 
         horario = get_object_or_404(Horario, id=evento.horario.id)

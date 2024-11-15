@@ -1,4 +1,4 @@
-from django.db import models
+"""from django.db import models
 
 class Usuario(models.Model):
     roll_opciones=[
@@ -13,4 +13,4 @@ class Usuario(models.Model):
     foto_perfil = models.ImageField(upload_to='usuarios/', null=True, blank=True)
     
     def __str__(self):
-        return self.nombre
+        return self.nombre"""

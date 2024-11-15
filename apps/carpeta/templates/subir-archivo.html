@@ -1,23 +1,11 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 {% load static %}
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'crear-carpeta.css' %}"> 
-    <title>Orden Arte</title>
-</head>
-<body>
-    <header>       
-        <nav>
-            <ul id="ul-bar">
-                <li class="nav-li"> <a href="{% url 'usuario' %}" class="nav-a"> Inicio </a> </li>
-                <li class="nav-li"> <a href="{% url 'grupo' %}" class="nav-a"> Grupos </a> </li>
-                <li class="nav-li"> <a href="{% url 'evento' %}" class="nav-a"> Eventos </a> </li>
-                <li class="nav-li"> <a href="{% url 'logout' %}" class="nav-a"> Cerrar Sesión</a> </li>
-            </ul>
-        </nav>
-    </header>
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'crear-carpeta.css' %}">
+{% endblock %}
+
+{% block contenido %}
     <h1>Subir archivo</h1>
 
     <div id="form-contenedor">
@@ -27,6 +15,5 @@
             <button type="submit">Subir archivo</button>
         </form>
     </div>
-
-
-</body>
+    
+{% endblock %}
