@@ -13,7 +13,7 @@
         <ul>
             {% for evento in eventos %}
             <div class="div-evento">
-                <li class="list-item"> <a href="{% url 'evento-detalle' grupo_id=evento.grupo.id evento_id=evento.id %}" class="a-item"> {{ evento.nombre }} </a> <small><p class="fecha">{{evento.fecha}}</p> <p id="grupo-nombre">Grupo: {{ evento.grupo }} </p> </small> </li>
+                <li class="list-item"> <a href="{% url 'evento-detalle' grupo_id=evento.grupo.id evento_id=evento.id %}" class="a-item"> {{ evento.nombre }}  <small><p class="fecha">{{evento.fecha}}</p> <p id="grupo-nombre">Grupo: {{ evento.grupo }} </p> </small></a> </li>
             </div>
 
             {% empty %} 

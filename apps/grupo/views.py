@@ -18,8 +18,6 @@ class GrupoView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)        
-        # context['grupos'] = Grupo.objects.filter(userDueño=id_usuario).all() 
-        # context['grupos'] = Grupo.objects.all()   
         context['grupos'] = self.request.user.grupos.all()
 
         return context 

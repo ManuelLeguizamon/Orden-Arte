@@ -29,6 +29,8 @@ class SignUpView(TemplateView):
             })
 
 #---------------------------------------------------------------------------------------------------------        
+"""
+#-------- LOGIN ANTERIOR AL QUE USA EL AD DE LA MAQUINA VIRTUAL !!!
 class LoginView(TemplateView):
     template_name = 'login.html'
 
@@ -43,6 +45,24 @@ class LoginView(TemplateView):
             else:
                 login(request, usuario)
                 return redirect('usuario')
+""" 
+#LOGIN PARA VALIDAR CON EL AD DE LA MAQUINA VIRTUAL 
+class LoginView(TemplateView):
+    template_name = 'login.html'
+
+    def post(self, request, *args, **kwargs):
+        username = request.POST.get('username')
+        password = request.POST.get('contraseña1')
+
+        usuario = authenticate(request, username=username, password=password)
+
+        if usuario is None:
+            return render(request, self.template_name, {
+                'errorLogin': 'Credenciales incorrectas o usuario no autorizado'
+            })
+        else:
+            login(request, usuario)
+            return redirect('usuario')
 
 #---------------------------------------------------------------------------------------------------------
 def logout_view(request):

@@ -20,7 +20,7 @@
         <ul>
             {% for evento in eventos %}
             <div class="div-evento" id="div-evento">
-                <li class="list-item"> <a href="{% url 'evento-detalle' grupo_id=grupo_id evento_id=evento.id  %}"  class="a-item"> {{ evento.nombre }} </a> <p class="fecha">{{evento.fecha}} </p> 
+                <li class="list-item"> <a href="{% url 'evento-detalle' grupo_id=grupo_id evento_id=evento.id  %}"  class="a-item"> {{ evento.nombre }} <p class="fecha">{{evento.fecha}}  </p> </a>
                 
                 <form action="{% url 'eliminar-evento' grupo_id=grupo_id borrar_evento_id=evento.id %}" method="post">
                     {% csrf_token %}

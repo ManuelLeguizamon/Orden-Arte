@@ -2,10 +2,12 @@
     margin:0 auto;
     box-sizing: border-box;
 }
+p{
+    color: #E2DFF7;
+}
 body {
     font-family: Arial, sans-serif;
-    background-color: #a7a5a5bb;
-    background: linear-gradient(90deg, rgb(255, 255, 255), rgb(97, 97, 97));
+    background-color: #E8E3D9;
 }
 #contenedor{
     margin: 30px; 
@@ -16,48 +18,86 @@ header{text-align: center;
 }
 main{
     display: inline-block;
-    border: 1px solid black;
     border-radius: 1em;
-    box-shadow: 0 0 5px;
-    padding: 15px;
+    box-shadow: 0 0 15px 0px rgba(31, 31, 31, 0.39);
+    padding: 2vw 0;
+    width: 40vw;
     text-align: center;
-    background-color: #ffffff;
-    background: linear-gradient(100deg, rgb(97, 97, 97), rgb(255, 255, 255));
+    background-color: #fcf7ef;
 }
+
 #titulo{
-    padding-bottom: 10px;
+    padding-bottom: 15px;
     text-align: center;
     font-size: 23px;
+    color: #000c2c;
 }
 .elemento-login{
     font-size: 20px;
-    height: 35px;
-    margin-bottom: 10px;
+    height: 7vh;
+    width: 80%;
+    margin-bottom: 3.5vh;
     padding: 8px;
     border-radius: .3em;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.295);
+}
+.elemento-login:hover{
+    transition: .4s ease-in-out;
+    transform: scale(1.02);
 }
 button{
     box-sizing: border-box;
-    height: 40px;
-    width: 160px;
+    height: 7vh;
+    width: 12vw;
     text-align: center;
     margin: 10px;
     font-size: 20px;
-    border: .5px solid black;
-    border-radius: 2em;
-    box-shadow: 0 0 4px black;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.295);
     background-color: #e9cece;
     color: #000000;
+    cursor: pointer;
 }
 button:hover{
-    transition: .1s;
+    transition: .4s;
     box-shadow: 0 0 3.5px;
-    background-color: #383636;
+    background-color: #3836363b;
     color: #ffffff;
+    transform: scale(1.1);
 }
-#a-txt{
-    position: relative;
-    top: 5px;  
+
+hr{
+    width: 60%;
+    margin-bottom: 3vh;
 }
+
+.a-txt{
+    display: block;
+    margin: 15px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: .5s;
+}
+.a-txt:hover{
+    text-decoration: dashed;
+    transform: scale(1.1);
+}
+
 h1{font-size: 50px;}
 h2{margin-bottom: 7px;}
+
+.mensaje-contenedor{
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.15);
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 3vh;
+    margin: 2vh;
+    background-color: #FFFDF7;
+    color: #1a1714;
+}
