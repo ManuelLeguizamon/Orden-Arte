@@ -17,7 +17,7 @@
             <p id="titulo"><b>Iniciar Sesion</b></p>
             <form action="{% url 'login' %}" method="post"> 
                 {% csrf_token %}
-                <input type="text" name="username" id="username" placeholder="Usuario AD" class="elemento-login">  <br>
+                <input type="email" name="email" id="email" placeholder="Mail" class="elemento-login">  <br>
                 <input type="password" name="contraseña1" id="contraseña1" placeholder="Contraseña" class="elemento-login">  <br>
                 <button type="submit" >Iniciar Seción</button>
             </form>

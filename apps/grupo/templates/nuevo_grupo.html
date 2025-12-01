@@ -8,7 +8,7 @@
 {% block contenido %}
     <h1> {{ grupo.nombre }} </h1>
 <hr>
-    <h2 class="tus-asuntos"><i><u>Tus eventos:</u></i></h2>
+    <h2 class="tus-asuntos"><i><u>Eventos:</u></i></h2>
   
         <div class="div-crear-evento">
             <a href="{% url 'crear-evento' grupo_id %}" class="a-opcion">Crear Evento</a>
@@ -17,9 +17,9 @@
 
 <!--   --------------     Eventos    ----------------------------------------------------------->
 
-        <ul>
+        <ul class="lista-elementos">
             {% for evento in eventos %}
-            <div class="div-evento" id="div-evento">
+            <!-- <div class="div-evento" id="div-evento"> -->
                 <li class="list-item"> <a href="{% url 'evento-detalle' grupo_id=grupo_id evento_id=evento.id  %}"  class="a-item"> {{ evento.nombre }} <p class="fecha">{{evento.fecha}}  </p> </a>
                 
                 <form action="{% url 'eliminar-evento' grupo_id=grupo_id borrar_evento_id=evento.id %}" method="post">
@@ -27,7 +27,7 @@
                     <button class="boton-eliminar">Borrar</button>
                 </form>
                 </li>
-            </div>
+            <!-- </div> -->
 
             {% empty %} 
             <p class="sin-data-txt"><i>No tenés eventos creados</i></p>
@@ -36,17 +36,17 @@
     
 <hr>
 
-<!--   --------------     Carpetas de canciones    ------------------------------------------------>
+<!--   --------------     Carpetas    ------------------------------------------------>
 
 
-    <h2 class="tus-asuntos"><i><u>Tus canciones:</u></i></h2>
+    <h2 class="tus-asuntos"><i><u>Carpetas:</u></i></h2>
     <div class="div-crear-carpeta">
         <a href="{% url 'crear-carpeta' grupo_id=grupo.id %}" class="a-opcion">Crear carpeta</a>
     </div>
 
-    <ul>
+    <ul class="lista-elementos">
         {% for carpeta in carpetas %}
-            <div class="div-evento" id="div-carpeta">
+            <!-- <div class="div-contenedor" > -->
                 <li class="list-item"> <a href="{% url 'carpeta' grupo_id=grupo_id carpeta_id=carpeta.id %}" class="a-item"> {{ carpeta.nombre }} </a> 
             
                 <form action="{% url 'eliminar-carpeta' grupo_id=grupo_id borrar_carpeta_id=carpeta.id %}" method="post">
@@ -54,7 +54,7 @@
                     <button class="boton-eliminar">Borrar</button>
                 </form>
                 </li>
-            </div>
+            <!-- </div> -->
         {% empty %}
         <p class="sin-data-txt"><i>No tenés canciones subidas</i></p>
         {% endfor %}

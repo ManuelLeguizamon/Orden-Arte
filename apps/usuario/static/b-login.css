@@ -13,7 +13,8 @@ body {
     margin: 30px; 
     text-align: center;
 }
-header{text-align: center;
+header{
+    text-align: center;
     margin: 20px;
 }
 main{
@@ -48,20 +49,19 @@ main{
 }
 button{
     box-sizing: border-box;
-    height: 7vh;
-    width: 12vw;
+    padding: 1.6vh 1.5vw;
     text-align: center;
     margin: 10px;
     font-size: 20px;
     border-radius: 10px;
     border: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.295);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.568);
     background-color: #e9cece;
     color: #000000;
     cursor: pointer;
+    transition: .4s ease-in-out;
 }
 button:hover{
-    transition: .4s;
     box-shadow: 0 0 3.5px;
     background-color: #3836363b;
     color: #ffffff;
@@ -85,8 +85,12 @@ hr{
     transform: scale(1.1);
 }
 
-h1{font-size: 50px;}
-h2{margin-bottom: 7px;}
+h1{
+    font-size: 50px;
+}
+h2{
+    margin-bottom: 7px;
+}
 
 .mensaje-contenedor{
     border: none;
@@ -100,4 +104,19 @@ h2{margin-bottom: 7px;}
     margin: 2vh;
     background-color: #FFFDF7;
     color: #1a1714;
+}
+
+/* -- RESPONSIVE DESIGN ----------------- */
+@media (max-width: 875px) {
+    main{
+        width: 60vw;
+    }
+}
+@media (max-width: 600px) {
+    main{
+        width: 75vw;
+    }
+    h1{
+    font-size: 40px;
+    }
 }

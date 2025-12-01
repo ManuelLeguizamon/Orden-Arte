@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block link %}
-    <link rel="stylesheet" href="{% static 'usuario/usuario.css' %}">
+    <link rel="stylesheet" href="{% static './usuario.css' %}">
 {% endblock %}
 
 {% block contenido %}
 
 
     <section class="bienvenida">
-        <h1>¡Bienvenido a Orden Arte!</h1>
+        <h1>¡Bienvenido {{ user.first_name }} a Orden Arte!</h1>
     
-        <p>En <strong>Orden Arte</strong>, te ofrecemos una plataforma única pensada especialmente para músicos y artistas, donde podrás organizar todas tus actividades y proyectos de manera eficiente.</p>
+        <p>En <strong>Orden Arte</strong>, te ofrecemos una plataforma pensada especialmente para músicos y artistas, donde podrás organizar todas tus actividades y proyectos de manera eficiente.</p>
     
         <p>Ya sea que estés creando un nuevo grupo musical, coordinando ensayos, o gestionando eventos como recitales, grabaciones o presentaciones, nuestra herramienta te proporciona todas las funciones necesarias para facilitar el proceso creativo y organizativo.</p>
     
@@ -34,7 +34,7 @@
     
         <p>En <strong>Orden Arte</strong>, nuestro objetivo es brindarte una plataforma intuitiva y funcional, para que puedas concentrarte en lo que realmente importa: <strong>¡el arte!</strong></p>
     
-        <p><strong>Uníte hoy y organiza tu mundo musical como el mas capo de todos!</strong></p>
+        <p><strong>Empezá hoy y organiza tus actividades!</strong></p>
     </section>
     
 

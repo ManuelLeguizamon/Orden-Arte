@@ -1,5 +1,5 @@
 from django.contrib import admin
-# from apps.usuario.models import Usuario
+from django.contrib.auth.models import User, Group
 
 
 """@admin.register(Usuario)

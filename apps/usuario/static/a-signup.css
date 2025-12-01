@@ -17,47 +17,50 @@ main{
     border-radius: 1em;
     box-shadow: 0 0 15px 0px rgba(31, 31, 31, 0.39);
     padding: 2vw;
-    width: 30vw;
+    width: 35vw;
     text-align: center;
     background-color: #fcf7ef;
+    transition: .3s ease;
+}
+main:hover{
+    box-shadow: 0 0 18px 0px rgba(31, 31, 31, 0.575);
 }
 
-#crea-txt{
+h2{
     padding-bottom: 15px;
 }
 .form-input{
     font-size: 20px;
     height: 7vh;
-    width: 80%;
-    margin-bottom: 2vh;
-    padding: 8px;
+    width: 90%;
+    margin-bottom: 4vh;
+    padding: 10px;
     border-radius: .3em;
     border: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.295);
 }
 .form-button{
     box-sizing: border-box;
-    height: 7vh;
-    width: 12vw;
+    padding: 1.6vh 1.5vw;
     text-align: center;
     margin: 10px;
     font-size: 20px;
     border-radius: 10px;
     border: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.295);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.466);
     background-color: #e9cece;
     color: #000000;
     cursor: pointer;
+    transition: .2s ease-in-out;
 }
 .form-button:hover{
-    transition: .2s;
-    box-shadow: 0 0 17px rgba(0, 0, 0, 0.411);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.678);
     color: #000000;
 }
 
 h1{
     font-size: 50px;
-    margin: 5vh;
+    margin: 3vh;
 }
 
 #subtitulo{margin-bottom: 7px;}
@@ -72,6 +75,9 @@ h1{
     text-align: center;
     font-size: 15px;
 }
+#ya_tenes_cuenta{
+    margin: 1rem;
+}
 .mensaje-contenedor{
     border: none;
     box-shadow: 0 0 8px rgba(0,0,0,0.15);
@@ -80,7 +86,26 @@ h1{
     text-align: center;
     align-items: center;
     padding: 3vh;
-    margin-bottom: 5vh;
+    margin-bottom: 2vh;
     background-color: #FFFDF7;
     color: #4B443C;
+    list-style-type: none;
+}
+
+/* -- RESPONSIVE DESIGN ---------- */
+@media (max-width: 900px){
+    main{
+        width: 55vw;
+    }
+    h1{
+        font-size: 35px;
+    }
+}
+@media (max-width: 455px){
+    main{
+        width: 75vw;
+    }
+    h2{
+        margin-top: 10px;
+    }
 }

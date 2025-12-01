@@ -1,9 +1,12 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, FormView
 from django.contrib.auth.models import User  
 from django.contrib.auth import authenticate, login, logout
-# from .models import Usuario
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
+from django.contrib import messages
+from .forms import SignupForm
+# from .models import Usuario
 
 
 #---------------------------------------------------------------------------------------------------------
@@ -11,26 +14,19 @@ class UsuarioView(LoginRequiredMixin, TemplateView):
     template_name='usuario.html'
 
 #---------------------------------------------------------------------------------------------------------
-class SignUpView(TemplateView):
-    template_name = 'signup.html'
 
-    def post(self, request, *args, **kwargs):
-        if request.POST['contraseña1'] == request.POST['contraseña2']:
-            try:
-                usuario = User.objects.create_user(username=request.POST.get('email'), password=request.POST.get('contraseña1'), first_name=request.POST.get('nombre'))
-                usuario.save()
-                return render(request, 'signup.html', {'exito': 'Usuario creado correctamente'})
-            except:
-                return render(request, 'signup.html',
-                    {'error':'El usuario ya existe'})
-        else:
-            return render(request, 'signup.html', {
-                'error': 'Las contraseñas deben ser iguales'
-            })
+class SignUpView(FormView):
+    template_name = "signup.html"
+    form_class = SignupForm
+    success_url = reverse_lazy("usuario")
+
+    def form_valid(self, form):
+         user = form.save()
+         login(self.request, user)
+         messages.success(self.request, "Cuenta creada con exito")
+         return super().form_valid(form)
 
 #---------------------------------------------------------------------------------------------------------        
-"""
-#-------- LOGIN ANTERIOR AL QUE USA EL AD DE LA MAQUINA VIRTUAL !!!
 class LoginView(TemplateView):
     template_name = 'login.html'
 
@@ -45,7 +41,9 @@ class LoginView(TemplateView):
             else:
                 login(request, usuario)
                 return redirect('usuario')
-""" 
+
+
+"""
 #LOGIN PARA VALIDAR CON EL AD DE LA MAQUINA VIRTUAL 
 class LoginView(TemplateView):
     template_name = 'login.html'
@@ -63,7 +61,7 @@ class LoginView(TemplateView):
         else:
             login(request, usuario)
             return redirect('usuario')
-
+"""
 #---------------------------------------------------------------------------------------------------------
 def logout_view(request):
         logout(request)

@@ -145,7 +145,3 @@ LOGOUT_REDIRECT_URL = '/inicio/login/'
 #Especifica la URL a la cual se redirige al usuario después de cerrar sesión.
 
 # -------------------------------------------------------------------------------------
-AUTHENTICATION_BACKENDS = [
-    'apps.usuario.adBackend.ActiveDirectoryBackend',
-    'django.contrib.auth.backends.ModelBackend',
-]
