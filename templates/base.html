@@ -1,8 +1,11 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <meta charset="UTF-8">  
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <meta charset="UTF-8">  
+    <link rel="stylesheet" href="base.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block link %} 
     {% endblock %}
@@ -17,11 +20,17 @@
                 <li class="nav-li"> <a href="{% url 'evento' %}" class="nav-a"> Eventos </a> </li>
                 <li class="nav-li"> <a href="{% url 'logout' %}" class="nav-a"> Cerrar Sesión</a> </li>
             </ul>
+
+            <div class="hamburguesa" id="hamburguesa">
+                ☰
+            </div>
         </nav>
     </header>
     {% block contenido %} 
  
     {% endblock %}
 
+    {% block scripts %}
+    {% endblock %}
 </body>
 </html>

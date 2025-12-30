@@ -17,9 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
+from django.shortcuts import redirect
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('', lambda request: redirect('inicio/')),
     path('admin/', admin.site.urls),
     path('carpeta/', include('apps.carpeta.urls')),
     path('evento/', include('apps.evento.urls')),
