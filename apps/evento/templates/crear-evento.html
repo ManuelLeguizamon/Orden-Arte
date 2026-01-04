@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block contenido %}
-    <h1>CREAR EVENTO</h1>
+    <h1 class="titulo-pagina">CREAR EVENTO</h1>
     <div id="form-contenedor">
         <form action="{% url 'nuevo-evento' grupo_id=grupo_id %}" method="post">
             {% csrf_token %}

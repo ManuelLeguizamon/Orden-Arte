@@ -30,11 +30,11 @@ main{
 #titulo{
     padding-bottom: 15px;
     text-align: center;
-    font-size: 23px;
+    font-size: clamp(1.2rem, 1.7vw, 3rem);
     color: #000c2c;
 }
 .elemento-login{
-    font-size: 20px;
+    font-size: clamp(1rem, 1.5vw, 2.5rem);
     height: 7vh;
     width: 80%;
     margin-bottom: 3.5vh;
@@ -52,7 +52,7 @@ button{
     padding: 1.6vh 1.5vw;
     text-align: center;
     margin: 10px;
-    font-size: 20px;
+    font-size: clamp(1.2rem, 1.5vw, 3rem);
     border-radius: 10px;
     border: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.568);
@@ -77,7 +77,7 @@ hr{
     display: block;
     margin: 15px;
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: clamp(1.2rem, 1.5vw, 3rem);
     transition: .5s;
 }
 .a-txt:hover{
@@ -87,6 +87,7 @@ hr{
 
 h1{
     font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
 }
 h2{
     margin-bottom: 7px;

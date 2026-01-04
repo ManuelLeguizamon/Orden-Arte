@@ -144,4 +144,6 @@ LOGIN_URL = '/inicio/login/'
 LOGOUT_REDIRECT_URL = '/inicio/login/' 
 #Especifica la URL a la cual se redirige al usuario después de cerrar sesión.
 
-# -------------------------------------------------------------------------------------
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]

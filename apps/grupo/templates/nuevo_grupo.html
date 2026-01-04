@@ -6,9 +6,9 @@
 {% endblock %}
 
 {% block contenido %}
-    <h1> {{ grupo.nombre }} </h1>
+    <h1 class="titulo-pagina"> {{ grupo.nombre }} </h1>
 <hr>
-    <h2 class="tus-asuntos"><i><u>Eventos:</u></i></h2>
+    <h2 class="tus-asuntos"><u>Eventos:</u></h2>
   
         <div class="div-crear-evento">
             <a href="{% url 'crear-evento' grupo_id %}" class="a-opcion">Crear Evento</a>
@@ -39,7 +39,7 @@
 <!--   --------------     Carpetas    ------------------------------------------------>
 
 
-    <h2 class="tus-asuntos"><i><u>Carpetas:</u></i></h2>
+    <h2 class="tus-asuntos"><u>Carpetas:</u></h2>
     <div class="div-crear-carpeta">
         <a href="{% url 'crear-carpeta' grupo_id=grupo.id %}" class="a-opcion">Crear carpeta</a>
     </div>

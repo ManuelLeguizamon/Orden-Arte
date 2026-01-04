@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 
 class Grupo(models.Model):
-    nombre = models.CharField(max_length=50, unique=True)
+    nombre = models.CharField(max_length=50, unique=False)
     listaCanciones = models.TextField(null=True, blank=True)
     userDueño = models.ForeignKey(User, on_delete=models.CASCADE, related_name='grupos', null=True, blank=True)
 

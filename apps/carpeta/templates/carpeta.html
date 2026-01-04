@@ -7,7 +7,7 @@
 
 {% block contenido %}
 
-    <h1>Contenido de {{ carpeta_nombre }} </h1>
+    <h1 class="titulo-pagina">Contenido de {{ carpeta_nombre }} </h1>
     <div>
         <a href="{% url 'subir-archivo' grupo_id=grupo_id carpeta_id=carpeta_id %}" id="subir-archivo">Subir archivo</a>
     </div>

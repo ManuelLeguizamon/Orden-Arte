@@ -28,9 +28,10 @@ main:hover{
 
 h2{
     padding-bottom: 15px;
+    font-size: clamp(1.2rem, 1.5vw, 3rem);
 }
 .form-input{
-    font-size: 20px;
+    font-size: clamp(1rem, 1.5vw, 2.5rem);
     height: 7vh;
     width: 90%;
     margin-bottom: 4vh;
@@ -44,7 +45,7 @@ h2{
     padding: 1.6vh 1.5vw;
     text-align: center;
     margin: 10px;
-    font-size: 20px;
+    font-size: clamp(1.2rem, 1.5vw, 3rem);
     border-radius: 10px;
     border: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.466);
@@ -57,9 +58,13 @@ h2{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.678);
     color: #000000;
 }
+#ya_tenes_cuenta{
+    font-size: clamp(1.2rem, 1.5vw, 3rem);
+}
 
 h1{
     font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
     margin: 3vh;
 }
 

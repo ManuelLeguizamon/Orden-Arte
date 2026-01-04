@@ -15,6 +15,10 @@
     <header>       
         <nav>
             <ul id="ul-bar">
+                <li class="close-li">
+                    <button id="cerrar-menu" class="close-btn">✕</button>
+                </li>
+
                 <li class="nav-li"> <a href="{% url 'usuario' %}" class="nav-a"> Inicio </a> </li>
                 <li class="nav-li"> <a href="{% url 'grupo' %}" class="nav-a"> Grupos </a> </li>
                 <li class="nav-li"> <a href="{% url 'evento' %}" class="nav-a"> Eventos </a> </li>
@@ -30,7 +34,14 @@
  
     {% endblock %}
 
+    <footer>
+        <hr>
+        <p class="footer-p">© 2026 Orden Arte</p>
+        <p class="footer-p">Manuel Leguizamón. Buenos Aires, Argentina</p>
+    </footer>
+
     {% block scripts %}
+        <script src="{% static 'js/navbar.js' %}"></script>
     {% endblock %}
 </body>
 </html>

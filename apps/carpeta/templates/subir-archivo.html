@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block contenido %}
-    <h1>Subir archivo</h1>
+    <h1 class="titulo-pagina">Subir archivo</h1>
 
     <div id="form-contenedor">
         <form action="{% url 'subir-archivo' grupo_id=grupo_id carpeta_id=carpeta_id %}" method="post" enctype="multipart/form-data">
