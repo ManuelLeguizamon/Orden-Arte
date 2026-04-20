@@ -1,0 +1,114 @@
+*{
+    margin:0 auto;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E8E3D9;
+}
+
+header{padding: 60px;}
+
+h1, h2{
+    display: flex;
+    justify-content: center;
+}
+
+
+.opcion-inicio{
+    display: flex;
+    justify-content: center;
+}
+.a-opcion{
+    background: linear-gradient(90deg, rgb(58, 58, 58), rgb(74, 207, 240));
+    font-size: 30px;
+    padding: 10px;
+    margin: 5px;
+    color: rgb(236, 209, 209);
+    width: 700px;
+    border: 2px solid black;
+    transition:  0.3s;
+}
+.a-opcion:hover{
+    color: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgb(85, 85, 85), rgb(106, 223, 252));
+    text-shadow: 0px 0px 2px rgb(255, 255, 255);
+}
+
+/* ---------------------------------------------------- */
+
+#form-contenedor{
+    margin: 1rem auto;
+    margin-bottom: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fcf7ef;
+    box-shadow: 0 0 15px 0px rgba(31, 31, 31, 0.39);
+    border-radius: 10px;
+    width: 30vw;
+}
+#form-contenedor:hover{
+    transition: .3s;
+    box-shadow: 0 0 15px 0px rgba(31, 31, 31, 0.582);
+}
+#id_nombre{
+    border-radius: 6px;
+    font-size: 15px;
+    padding: .3rem;
+    width: 65%;
+}
+#form-div{
+    padding: 5px;
+    font-size: 20px;
+    margin-top: 1rem;
+}
+button{
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+    padding: 10px 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(209, 209, 209);
+    box-shadow: 0 0 10px 0px rgba(31, 31, 31, 0.582);
+    color: #3f3f3f;
+    cursor: pointer;
+    transition: .2s;
+}
+button:hover{
+    background-color: rgb(223, 221, 221);
+    box-shadow: 0 0 10px 0px rgba(31, 31, 31, 0.747);
+}
+
+input{
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.322);
+}
+input:hover{
+    transition: .3s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.473);
+    transform: scale(1.02);
+}
+
+/* -- RESPONSIVE DESIGN --------------------------- */
+@media (max-width: 860px){
+    #form-contenedor{
+        width: 50vw;
+    }
+}
+@media (max-width: 625px){
+    #form-contenedor{
+        width: 70vw;
+    }
+}
+@media (max-width: 445px){
+    #form-contenedor{
+        width: 90vw;
+    }
+    #id_nombre{
+        font-size: 15px;
+        padding: .5rem;
+    }
+}

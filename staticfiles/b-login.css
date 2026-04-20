@@ -1,0 +1,120 @@
+*{
+    margin:0 auto;
+    box-sizing: border-box;
+}
+p{
+    color: #E2DFF7;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E8E3D9;
+}
+#contenedor{
+    margin: 30px; 
+    text-align: center;
+}
+header{
+    text-align: center;
+    margin: 20px;
+}
+main{
+    display: inline-block;
+    border-radius: 1em;
+    box-shadow: 0 0 15px 0px rgba(31, 31, 31, 0.39);
+    padding: 2vw 0;
+    width: 40vw;
+    text-align: center;
+    background-color: #fcf7ef;
+}
+
+#titulo{
+    padding-bottom: 15px;
+    text-align: center;
+    font-size: clamp(1.2rem, 1.7vw, 3rem);
+    color: #000c2c;
+}
+.elemento-login{
+    font-size: clamp(1rem, 1.5vw, 2.5rem);
+    height: 7vh;
+    width: 80%;
+    margin-bottom: 3.5vh;
+    padding: 8px;
+    border-radius: .3em;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.295);
+    transition: .4s ease-in-out;
+}
+.elemento-login:hover{
+    transform: scale(1.02);
+}
+button{
+    box-sizing: border-box;
+    padding: 1.6vh 1.5vw;
+    text-align: center;
+    margin: 10px;
+    font-size: clamp(1.2rem, 1.5vw, 3rem);
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.568);
+    background-color: #e9cece;
+    color: #000000;
+    cursor: pointer;
+    transition: .4s;
+}
+button:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.719);
+}
+
+hr{
+    width: 60%;
+    margin-bottom: 3vh;
+}
+
+.a-txt{
+    display: block;
+    margin: 15px;
+    text-decoration: none;
+    font-size: clamp(1.2rem, 1.5vw, 3rem);
+    transition: .5s;
+}
+.a-txt:hover{
+    text-decoration: dashed;
+    transform: scale(1.1);
+}
+
+h1{
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+}
+h2{
+    margin-bottom: 7px;
+}
+
+.mensaje-contenedor{
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.15);
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 3vh;
+    margin: 2vh;
+    background-color: #FFFDF7;
+    color: #1a1714;
+}
+
+/* -- RESPONSIVE DESIGN ----------------- */
+@media (max-width: 875px) {
+    main{
+        width: 60vw;
+    }
+}
+@media (max-width: 600px) {
+    main{
+        width: 75vw;
+    }
+    h1{
+    font-size: 40px;
+    }
+}
