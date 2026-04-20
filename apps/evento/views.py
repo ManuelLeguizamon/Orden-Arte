@@ -15,6 +15,8 @@ class EventoView(LoginRequiredMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         context['eventos'] = Evento.objects.filter(grupo__userDueño=self.request.user).all()      
         return context
+    
+    
 
 #----------------------------------------------------------------------------------------------------------------------------
 class EventoDetalleView(LoginRequiredMixin, TemplateView):

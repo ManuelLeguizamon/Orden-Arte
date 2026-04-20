@@ -147,3 +147,8 @@ LOGOUT_REDIRECT_URL = '/inicio/login/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+# Para que la secion expire por tiempo
+SESSION_COOKIE_AGE = 3000
+SESSION_SAVE_EVERY_REQUEST = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False

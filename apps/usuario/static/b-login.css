@@ -42,9 +42,9 @@ main{
     border-radius: .3em;
     border: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.295);
+    transition: .4s ease-in-out;
 }
 .elemento-login:hover{
-    transition: .4s ease-in-out;
     transform: scale(1.02);
 }
 button{
@@ -59,13 +59,10 @@ button{
     background-color: #e9cece;
     color: #000000;
     cursor: pointer;
-    transition: .4s ease-in-out;
+    transition: .4s;
 }
 button:hover{
-    box-shadow: 0 0 3.5px;
-    background-color: #3836363b;
-    color: #ffffff;
-    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.719);
 }
 
 hr{
