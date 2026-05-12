@@ -47,12 +47,13 @@
     <ul class="lista-elementos">
         {% for carpeta in carpetas %}
             <!-- <div class="div-contenedor" > -->
-                <li class="list-item"> <a href="{% url 'carpeta' grupo_id=grupo_id carpeta_id=carpeta.id %}" class="a-item"> {{ carpeta.nombre }} </a> 
+                <li class="list-item"> 
+                    <a href="{% url 'carpeta' grupo_id=grupo_id carpeta_id=carpeta.id %}" class="a-item"> {{ carpeta.nombre }} </a> 
             
-                <form action="{% url 'eliminar-carpeta' grupo_id=grupo_id borrar_carpeta_id=carpeta.id %}" method="post">
-                    {% csrf_token %}
-                    <button class="boton-eliminar">Borrar</button>
-                </form>
+                    <form action="{% url 'eliminar-carpeta' grupo_id=grupo_id borrar_carpeta_id=carpeta.id %}" method="post">
+                        {% csrf_token %}
+                        <button class="boton-eliminar">Borrar</button>
+                    </form>
                 </li>
             <!-- </div> -->
         {% empty %}

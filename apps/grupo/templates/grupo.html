@@ -18,8 +18,8 @@
         
         <ul id="lista-grupos">
             {% for grupo in grupos %}
-            <li class="list-item"> <a href="{% url 'nuevo-grupo' grupo_id=grupo.id %}" class="a-item"> {{ grupo.nombre }} </a> 
-
+            <li class="list-item"> 
+                <a href="{% url 'nuevo-grupo' grupo_id=grupo.id %}" class="a-item"> {{ grupo.nombre }} </a> 
                 <form action="{% url 'borrar_grupo' borrar_grupo_id=grupo.id %}" method="post">
                     {% csrf_token %}
                     <button id="boton-eliminar">Borrar</button>

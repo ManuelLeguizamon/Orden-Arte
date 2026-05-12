@@ -12,17 +12,27 @@
         <a href="{% url 'subir-archivo' grupo_id=grupo_id carpeta_id=carpeta_id %}" id="subir-archivo">Subir archivo</a>
     </div>
 
+    <ul id="lista-grupos">
         {% for archivo in archivos %}
-        <div class="div-archivos">
-            <a href="{{ archivo.archivo.url }}" target="_blank">
-                {{ archivo.nombreMultimedia }}
-            </a>
-        </div>
+            <li class="list-item">
 
-            <form action="{% url 'eliminar-archivo' grupo_id=grupo_id carpeta_id=carpeta_id eliminar_archivo_id=archivo.id %}" method="post">
-                {% csrf_token %}
-                <button id="boton-eliminar">Borrar</button>
-            </form>
-        {% endfor %}
+                <a href="{{ archivo.archivo.url }}" class="a-item" target="_blank">
+                    {{ archivo.nombreMultimedia }}
+                </a>
+                <form action="{% url 'eliminar-archivo' grupo_id=grupo_id carpeta_id=carpeta_id eliminar_archivo_id=archivo.id %}" method="post">
+                    {% csrf_token %}
+                    <button id="boton-eliminar">Borrar</button>
+                </form>
+            </li>
+            
+            {% endfor %}
+    </ul>
 
 {% endblock %}
+
+<!-- ACA aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+ Empieza
+ los 
+ CAMBIOS
+ AH REEE 
+ LO CO  LO PE  A -->

@@ -38,7 +38,14 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google', #Proveedor de autenticación de Google para django-allauth
 ]
+
 LOCAL_APPS = [
     'apps.evento',
     'apps.grupo',
@@ -46,6 +53,14 @@ LOCAL_APPS = [
     'apps.carpeta',
 ]
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS
+
+SITE_ID = 1
+
+# Configuración necesaria para allauth de GOOGLE
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -56,6 +71,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'Project.urls'
@@ -141,9 +157,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGIN_URL = '/inicio/login/' 
 # Especifica la URL a la cual se redirige a un usuario no autenticado cuando intenta acceder a una vista que requiere inicio de sesión
 
-#LOGIN_REDIRECT_URL = '/inicio/' 
-#La URL que redirige  al usuario después de iniciar sesión correctamente lo manejo desde la vista
+SOCIALACCOUNT_LOGIN_ON_GET = True # Para que no pida verificar el mail obligatoriamente si vienes de Google
+SOCIALACCOUNT_AUTO_SIGNUP = True # Si el usuario no existe, lo crea automáticamente sin pedirle pasos extra
 
+
+
+LOGIN_REDIRECT_URL = '/inicio/' 
+#La URL que redirige  al usuario después de iniciar sesión correctamente lo manejo desde la vista
 
 LOGOUT_REDIRECT_URL = '/inicio/login/' 
 #Especifica la URL a la cual se redirige al usuario después de cerrar sesión.

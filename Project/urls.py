@@ -27,6 +27,7 @@ urlpatterns = [
     path('evento/', include('apps.evento.urls')),
     path('grupo/', include('apps.grupo.urls')),
     path('inicio/', include('apps.usuario.urls')),
+    path('accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:

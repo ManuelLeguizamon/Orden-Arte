@@ -3,7 +3,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="{% static 'O.A.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'OAchatgpt.png' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'b-login.css' %}">
     <title>Orden Arte-Login</title>
@@ -14,6 +14,41 @@
         <header>
             <h1>Orden Arte</h1>
         </header>
+        <main>
+            <!-- <p id="titulo"><b>Iniciar Sesion</b></p> -->
+            <!-- <form action="{% url 'login' %}" method="post"> 
+                {% csrf_token %}
+                <input type="email" name="email" id="email" placeholder="Mail" class="elemento-login">  <br>
+                <input type="password" name="contraseña1" id="contraseña1" placeholder="Contraseña" class="elemento-login">  <br>
+                <button type="submit" class="botonIniciar">Iniciar Sesión</button>
+            </form> -->
+
+            <br>
+            <!-- ENTRAR CON GOOGLE -->
+            {% load socialaccount %}
+            <div class="google-login-container">
+                <a href="{% provider_login_url 'google' %}"  class="btn-google botonIniciar">
+                    Iniciar Sesión <br>con Google
+                </a>
+            </div>
+
+            {% if errorLogin %}
+                <p class="mensaje-contenedor"><b> <u> Error <br>{{errorLogin}} </u></b> </p>
+            {% endif %}
+            <br>
+            <hr>
+            <!-- <a href="#" class="a-txt">¿Olvidaste tu contraseña?</a> -->
+            <!-- <a href="../signup" class="a-txt">¿No tenes cuenta? Creá una! </a> -->
+            
+            <!-- CREAR CUENTA CON GOOGLE -->
+            <a href="{% provider_login_url 'google' %}" class="a-txt">¿No tenes cuenta? ¡Creá una!</a>
+        </main>
+    </div>
+</body>
+</html>
+
+<!-- 
+Main original sin el boton de google -----------------------------------------------------------v
         <main>
             <p id="titulo"><b>Iniciar Sesion</b></p>
             <form action="{% url 'login' %}" method="post"> 
@@ -29,7 +64,4 @@
             <hr>
             <a href="#" class="a-txt">¿Olvidaste tu contraseña?</a>
             <a href="../signup" class="a-txt">¿No tenes cuenta? Creá una! </a>
-        </main>
-    </div>
-</body>
-</html>
+        </main> -->
