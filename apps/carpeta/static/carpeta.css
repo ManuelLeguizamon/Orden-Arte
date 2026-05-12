@@ -1,0 +1,112 @@
+*{
+    margin:0 auto;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E8E3D9;
+}
+
+header{padding: 40px;}
+
+h1{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+#subir-archivo{
+    display: flex;
+    justify-content: center;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px  rgba(0, 0, 0, 0.534);
+    width: 140px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    text-decoration: none;
+    color: rgb(51, 51, 51);
+    background-color: #e9cece;
+    font-size: 20px;
+    transition: .3s ease-in-out;
+}
+#subir-archivo:hover{
+    box-shadow: 0px 0px 8px  rgba(0, 0, 0, 0.685);
+    transform: scale(1.02);
+}
+
+/* ARCHIVOS SUBIDOS  */
+
+#lista-grupos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    min-height: 11rem;
+}
+.list-item{
+    list-style-type: none;
+    background: linear-gradient(90deg, rgb(255, 249, 249), rgb(253, 199, 199));
+    border-radius: 5px;
+    font-size: 30px;
+    margin: 10px;
+    width: 55vw;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.336);
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.list-item:hover{
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.514);
+}
+.a-item{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 15px;
+}
+
+#boton-eliminar{
+    padding: 5px 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: rgb(49, 49, 49);
+    color: #E8E3D9;
+    transition: .2s;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.445);
+    cursor: pointer;
+}
+#boton-eliminar:hover{
+    background-color: rgb(75, 75, 75);
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.582);
+}
+
+
+/* --RESPINSIVE -------------------- */ 
+@media (max-width: 780px) {
+    .list-item {
+        width: 90vw; 
+    }
+}
+@media (max-width: 250px) {
+    .list-item {
+        width: 95vw; 
+        flex-direction: column;
+    }
+    #boton-eliminar{
+        margin-bottom: 10px;
+    }
+    .a-item{
+        padding-bottom: 5px;
+    }
+}

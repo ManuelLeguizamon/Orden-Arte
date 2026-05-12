@@ -13,14 +13,13 @@ ipynb
 venvs
 venvs/
 *.csv
-static
 lector_dummy
 lector_dummy.ipynb
 *.ipynb
 .ipynb
 .json
 tmp
-static
+# static
 /tmp/
 /tmp/*
 *.json
