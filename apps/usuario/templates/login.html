@@ -28,7 +28,8 @@
             {% load socialaccount %}
             <div class="google-login-container">
                 <a href="{% provider_login_url 'google' %}"  class="btn-google botonIniciar">
-                    Iniciar Sesión <br>con Google
+                    <img src="{% static './google.svg' %}" alt="Google" class="google-icon">
+                    Continuar con Google
                 </a>
             </div>
 
@@ -37,31 +38,8 @@
             {% endif %}
             <br>
             <hr>
-            <!-- <a href="#" class="a-txt">¿Olvidaste tu contraseña?</a> -->
-            <!-- <a href="../signup" class="a-txt">¿No tenes cuenta? Creá una! </a> -->
-            
-            <!-- CREAR CUENTA CON GOOGLE -->
             <a href="{% provider_login_url 'google' %}" class="a-txt">¿No tenes cuenta? ¡Creá una!</a>
         </main>
     </div>
 </body>
 </html>
-
-<!-- 
-Main original sin el boton de google -----------------------------------------------------------v
-        <main>
-            <p id="titulo"><b>Iniciar Sesion</b></p>
-            <form action="{% url 'login' %}" method="post"> 
-                {% csrf_token %}
-                <input type="email" name="email" id="email" placeholder="Mail" class="elemento-login">  <br>
-                <input type="password" name="contraseña1" id="contraseña1" placeholder="Contraseña" class="elemento-login">  <br>
-                <button type="submit" >Iniciar Seción</button>
-            </form>
-            {% if errorLogin %}
-                <p class="mensaje-contenedor"><b> <u> Error <br>{{errorLogin}} </u></b> </p>
-            {% endif %}
-            <br>
-            <hr>
-            <a href="#" class="a-txt">¿Olvidaste tu contraseña?</a>
-            <a href="../signup" class="a-txt">¿No tenes cuenta? Creá una! </a>
-        </main> -->

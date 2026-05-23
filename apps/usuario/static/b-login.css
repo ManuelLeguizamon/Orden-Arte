@@ -55,6 +55,9 @@ main{
     padding: 0;
 }
 .botonIniciar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
     box-sizing: border-box;
     padding: 1.8vh 1.5vw;
@@ -62,16 +65,23 @@ main{
     margin: 10px;
     margin-bottom: 0;
     font-size: clamp(1.2rem, 1.7vw, 3rem);
-    border-radius: 10px;
+    border-radius: 20px;
     border: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.568);
     background-color: #e9cece;
     color: #000000;
     cursor: pointer;
+    width: 100%;
     transition: .4s;
 }
 .botonIniciar:hover{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.719);
+}
+.google-icon{
+    width: 28px;
+    height: auto;
+    margin: 0;
+    margin-right: 10px;
 }
 
 
